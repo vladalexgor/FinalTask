@@ -1,0 +1,60 @@
+﻿<Window x:Class="FinalTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalTask"
+        xmlns:vm="clr-namespace:FinalTask.ViewModels"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="400" Background="Black" WindowStyle="ThreeDBorderWindow">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="#FF1B1919"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="Grid"  ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <UniformGrid Rows="6" Columns="4" Grid.Row="1">
+            <Button Content="C" Foreground="Red" Command="{Binding Path=AddCommand}"/>
+            <Button Content="(" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content=")" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="x" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="7" Command="{Binding Path=AddCommand}"/>
+            <Button Content="8" Command="{Binding Path=AddCommand}"/>
+            <Button Content="9" Command="{Binding Path=AddCommand}"/>
+            <Button Content="/" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="4" Command="{Binding Path=AddCommand}"/>
+            <Button Content="5" Command="{Binding Path=AddCommand}"/>
+            <Button Content="6" Command="{Binding Path=AddCommand}"/>
+            <Button Content="*" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="1" Command="{Binding Path=AddCommand}"/>
+            <Button Content="2" Command="{Binding Path=AddCommand}"/>
+            <Button Content="3" Command="{Binding Path=AddCommand}"/>
+            <Button Content="-" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="0" Command="{Binding Path=AddCommand}"/>
+            <Button Content="," Command="{Binding Path=AddCommand}"/>
+            <Button Content="=" Background="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="+" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+        </UniformGrid>
+        <TextBox Text="{Binding Path=TextBox}"
+                 Margin="5" 
+                 Padding="5" 
+                 FontSize="20" 
+                 HorizontalContentAlignment="Right" 
+                 FontFamily="Arial" BorderBrush="#FF33D819" 
+                 Background="#FF1B1919" 
+                 Foreground="White"/>
+    </Grid>
+</Window>
