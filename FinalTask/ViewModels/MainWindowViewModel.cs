@@ -1,4 +1,5 @@
 ﻿using FinalTask.Models;
+using Microsoft.VisualStudio.PlatformUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,17 +23,6 @@ namespace FinalTask.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
-        private string textButton;
-        public string TextButton
-        {
-            get => textButton;
-            set
-            {
-                textButton = value;
-                OnPropertyChanged();
-            }
-        }
-
         private string textBox;
         public string TextBox
         {
@@ -44,18 +34,46 @@ namespace FinalTask.ViewModels
             }
         }
 
-        public ICommand AddCommand { get; }
-        private void OnAddCommandExecute(object p)
+        public ICommand AddSymbol { get; }
+        public ICommand Clear { get; }        
+        public ICommand Calculate { get; }
+        public ICommand Backspace { get; }
+
+        private void OnAddSymbolExecute(object p)
         {
-            Calculator.ButtonClick(TextButton, TextBox);
+            Calculator.AddSymbol(ref textBox, p);
+            OnPropertyChanged("TextBox");
         }
-        private bool CanAddCommandExecuted(object p)
+        private void OnClearExecute(object p)
+        {
+            Calculator.Clear(ref textBox);
+            OnPropertyChanged("TextBox");
+        }
+        private void OnCalculateExecute(object p)
+        {
+            Calculator.Calculate(ref textBox);
+            OnPropertyChanged("TextBox");
+        }
+        private void OnBackspaceExecute(object p)
+        {
+            Calculator.Backspace(ref textBox);
+            OnPropertyChanged("TextBox");
+        }
+        private bool CanActionBeDoneExecuted(object p)
+        {
+            return TextBox.Length > 0;
+        }
+        private bool CanAddSymbolExecuted(object p)
         {
             return true;
         }
         public MainWindowViewModel()
         {
-            AddCommand = new RelayCommand(OnAddCommandExecute, CanAddCommandExecuted);
-        }
+            TextBox = string.Empty;
+            AddSymbol = new RelayCommand(OnAddSymbolExecute, CanAddSymbolExecuted);
+            Clear = new RelayCommand(OnClearExecute, CanActionBeDoneExecuted);
+            Calculate = new RelayCommand(OnCalculateExecute, CanActionBeDoneExecuted);
+            Backspace = new RelayCommand(OnBackspaceExecute, CanActionBeDoneExecuted);
+        }      
     }
 }

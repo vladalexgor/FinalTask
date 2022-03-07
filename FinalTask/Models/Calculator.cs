@@ -10,22 +10,29 @@ using System.Windows.Controls;
 namespace FinalTask.Models
 {
     static class Calculator
-    {        
-        public static void ButtonClick (string textButton, string textBox)
+    {
+        public static void Clear(ref string text)
         {
-            if (textButton == "C")
+            text = string.Empty;
+        }
+        public static void Backspace(ref string text)
+        {
+            text = text.Substring(0, text.Length - 1);
+        }
+        public static void Calculate(ref string text)
+        {
+            try
             {
-                textBox = null;
+                text = new DataTable().Compute(text, null).ToString();
             }
-            else if (textButton == "x")
+            catch (Exception ex)
             {
-                textBox = textBox.Substring(textBox.Length - 1);
+                MessageBox.Show(ex.Message);
             }
-            else if (textButton == "=")
-            {
-                textBox = new DataTable().Compute(textBox, null).ToString();
-            }
-            else textBox += textButton;
+        }
+        public static void AddSymbol(ref string text, object a)
+        {
+            text += a.ToString();
         }
     }
 }

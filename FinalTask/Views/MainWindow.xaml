@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalTask"
-        xmlns:vm="clr-namespace:FinalTask.ViewModels"
+        xmlns:vm="clr-namespace:FinalTask.ViewModels" d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="400" Background="Black" WindowStyle="ThreeDBorderWindow">
     <Window.DataContext>
@@ -27,26 +27,26 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <UniformGrid Rows="6" Columns="4" Grid.Row="1">
-            <Button Content="C" Foreground="Red" Command="{Binding Path=AddCommand}"/>
-            <Button Content="(" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content=")" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="x" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="7" Command="{Binding Path=AddCommand}"/>
-            <Button Content="8" Command="{Binding Path=AddCommand}"/>
-            <Button Content="9" Command="{Binding Path=AddCommand}"/>
-            <Button Content="/" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="4" Command="{Binding Path=AddCommand}"/>
-            <Button Content="5" Command="{Binding Path=AddCommand}"/>
-            <Button Content="6" Command="{Binding Path=AddCommand}"/>
-            <Button Content="*" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="1" Command="{Binding Path=AddCommand}"/>
-            <Button Content="2" Command="{Binding Path=AddCommand}"/>
-            <Button Content="3" Command="{Binding Path=AddCommand}"/>
-            <Button Content="-" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="0" Command="{Binding Path=AddCommand}"/>
-            <Button Content="," Command="{Binding Path=AddCommand}"/>
-            <Button Content="=" Background="#FF33D819" Command="{Binding Path=AddCommand}"/>
-            <Button Content="+" Foreground="#FF33D819" Command="{Binding Path=AddCommand}"/>
+            <Button Content="C" CommandParameter="C" Foreground="Red" Command="{Binding Path=Clear}"/>
+            <Button Content="(" CommandParameter="(" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
+            <Button Content=")" CommandParameter=")" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="x" CommandParameter="x" Foreground="#FF33D819" Command="{Binding Path=Backspace}"/>
+            <Button Content="7" CommandParameter="7" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="8" CommandParameter="8" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="9" CommandParameter="9" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="/" CommandParameter="/" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="4" CommandParameter="4" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="5" CommandParameter="5" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="6" CommandParameter="6" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="*" CommandParameter="*" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="1" CommandParameter="1" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="2" CommandParameter="2" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="3" CommandParameter="3" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="-" CommandParameter="-" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="0" CommandParameter="0" Command="{Binding Path=AddSymbol}"/>
+            <Button Content="," CommandParameter="." Command="{Binding Path=AddSymbol}"/>
+            <Button Content="=" CommandParameter="=" Background="#FF33D819" Command="{Binding Path=Calculate}"/>
+            <Button Content="+" CommandParameter="+" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
         </UniformGrid>
         <TextBox Text="{Binding Path=TextBox}"
                  Margin="5" 
