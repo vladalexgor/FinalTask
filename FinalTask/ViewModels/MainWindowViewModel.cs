@@ -23,7 +23,7 @@ namespace FinalTask.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
-        //Инициализация содержимого поля TextBox
+        //Инициализация свойства для TextBox
         private string textBox;
         public string TextBox
         {
@@ -69,7 +69,7 @@ namespace FinalTask.ViewModels
         {
             return true;
         }
-        //Инициализация всех методов
+        //Инициализация всех команд
         public MainWindowViewModel()
         {
             TextBox = string.Empty; //Приравнивание к пустой строке, чтобы могла отработать проверка CanActionBeDoneExecuted
