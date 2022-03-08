@@ -44,7 +44,7 @@
             <Button Content="3" CommandParameter="3" Command="{Binding Path=AddSymbol}"/>
             <Button Content="-" CommandParameter="-" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
             <Button Content="0" CommandParameter="0" Command="{Binding Path=AddSymbol}"/>
-            <Button Content="," CommandParameter="." Command="{Binding Path=AddSymbol}"/>
+            <Button Content="." CommandParameter="." Command="{Binding Path=AddSymbol}"/>
             <Button Content="=" CommandParameter="=" Background="#FF33D819" Command="{Binding Path=Calculate}"/>
             <Button Content="+" CommandParameter="+" Foreground="#FF33D819" Command="{Binding Path=AddSymbol}"/>
         </UniformGrid>

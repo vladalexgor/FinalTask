@@ -24,6 +24,10 @@ namespace FinalTask.Models
             try
             {
                 text = new DataTable().Compute(text, null).ToString();
+                if (text.Contains(','))
+                {
+                    text = text.Replace(',', '.');
+                }
             }
             catch (Exception ex)
             {
