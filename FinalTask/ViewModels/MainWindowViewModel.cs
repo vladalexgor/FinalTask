@@ -23,6 +23,7 @@ namespace FinalTask.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
         }
 
+        //Инициализация содержимого поля TextBox
         private string textBox;
         public string TextBox
         {
@@ -59,6 +60,7 @@ namespace FinalTask.ViewModels
             Calculator.Backspace(ref textBox);
             OnPropertyChanged("TextBox");
         }
+        //Если поле пустое, блокируются кнопки "С", "х" и "="
         private bool CanActionBeDoneExecuted(object p)
         {
             return TextBox.Length > 0;
@@ -67,9 +69,10 @@ namespace FinalTask.ViewModels
         {
             return true;
         }
+        //Инициализация всех методов
         public MainWindowViewModel()
         {
-            TextBox = string.Empty;
+            TextBox = string.Empty; //Приравнивание к пустой строке, чтобы могла отработать проверка CanActionBeDoneExecuted
             AddSymbol = new RelayCommand(OnAddSymbolExecute, CanAddSymbolExecuted);
             Clear = new RelayCommand(OnClearExecute, CanActionBeDoneExecuted);
             Calculate = new RelayCommand(OnCalculateExecute, CanActionBeDoneExecuted);
