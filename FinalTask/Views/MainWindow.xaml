@@ -6,25 +6,32 @@
         xmlns:local="clr-namespace:FinalTask"
         xmlns:vm="clr-namespace:FinalTask.ViewModels" d:DataContext="{d:DesignInstance Type=vm:MainWindowViewModel}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="400" Background="Black" WindowStyle="ThreeDBorderWindow">
+        Title="MainWindow" Height="330" Width="400" Background="Black" WindowStyle="ThreeDBorderWindow">
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="Padding" Value="5"/>
-            <Setter Property="Background" Value="#FF1B1919"/>
-            <Setter Property="FontFamily" Value="Arial"/>
-            <Setter Property="FontSize" Value="16"/>
-            <Setter Property="BorderBrush" Value="{x:Null}"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Style.Setters>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="Background" Value="#FF1B1919"/>
+                <Setter Property="FontFamily" Value="Arial"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="BorderBrush" Value="{x:Null}"/>
+                <Setter Property="Foreground" Value="White"/>
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="22"/>
+                </Trigger>                
+            </Style.Triggers>            
         </Style>
     </Window.Resources>
     <Grid x:Name="Grid"  ShowGridLines="False">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="280"/>
         </Grid.RowDefinitions>
         <UniformGrid Rows="6" Columns="4" Grid.Row="1">
             <Button Content="C" CommandParameter="C" Foreground="Red" Command="{Binding Path=Clear}"/>
@@ -51,7 +58,7 @@
         <TextBox Text="{Binding Path=TextBox}"
                  Margin="5" 
                  Padding="5" 
-                 FontSize="20" 
+                 FontSize="24" 
                  HorizontalContentAlignment="Right" 
                  FontFamily="Arial" BorderBrush="#FF33D819" 
                  Background="#FF1B1919" 
